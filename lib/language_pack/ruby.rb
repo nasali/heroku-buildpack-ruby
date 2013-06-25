@@ -72,7 +72,9 @@ class LanguagePack::Ruby < LanguagePack::Base
       install_language_pack_gems
       build_bundler
       create_database_yml
+      puts "About to install binaries"
       install_binaries
+      puts "About to precompile assets"
       run_assets_precompile_rake_task
     end
     super
