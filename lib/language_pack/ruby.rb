@@ -598,6 +598,7 @@ params = CGI.parse(uri.query || "")
 
   def run_assets_precompile_rake_task
     if rake_task_defined?("assets:precompile")
+      puts "0000000 About to run assets:precompile"
       require 'benchmark'
 
       topic "Running: rake assets:precompile"
