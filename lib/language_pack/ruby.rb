@@ -597,7 +597,7 @@ params = CGI.parse(uri.query || "")
   end
 
   def run_assets_precompile_rake_task
-    if rake_task_defined?("assets:precompile")
+    #if rake_task_defined?("assets:precompile")
       puts "0000000 About to run assets:precompile"
       require 'benchmark'
 
@@ -606,7 +606,7 @@ params = CGI.parse(uri.query || "")
       if $?.success?
         puts "Asset precompilation completed (#{"%.2f" % time}s)"
       end
-    end
+    #end
   end
 
   def bundler_cache
