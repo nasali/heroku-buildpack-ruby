@@ -75,7 +75,13 @@ class LanguagePack::Ruby < LanguagePack::Base
       puts "About to install binaries"
       install_binaries
       puts "About to precompile assets"
-      run_assets_precompile_rake_task
+      require 'benchmark'
+
+      topic "Running: rake assets:precompile"
+      time = Benchmark.realtime { pipe("env PATH=$PATH:bin bundle exec rake assets:precompile 2>&1") }
+      if $?.success?
+        puts "Asset precompilation completed (#{"%.2f" % time}s)"
+      end
     end
     super
   end
